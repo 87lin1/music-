@@ -1,54 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>標題與背景銜接範例</title>
-<style>
-body, h1 {
-  margin: 0;
-  padding: 0;
-}
-body {
-  background-image: url("picture/GmUOv2jbMAAFy0X.jpg");
-  background-size: cover;
-  background-color: rgba(255, 255, 255, 0.5); /* body背景淡化 */
-  background-blend-mode: overlay; /* 背景混合模式 */
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
-}
-main {
-  flex: 1;
-}
-h1 {
-  text-align: center;
-  background-image: url("picture/GmUOv2jbMAAFy0X.jpg");
-  background-size: cover;
-  background-position: top center;
-  line-height: 3;
-  font-size: 2em;
-  color: white;
-  background-color: rgba(255, 255, 255, 0.5); /* h1背景淡化 */
-  background-blend-mode: overlay; /* 背景混合模式 */
-}
-footer {
-  background-color: #333;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>87lin自用music轉.mp3連接</title>
+    <link rel="stylesheet" href="css.css">
 </head>
 <body>
+    <h1>87lin自用music轉.mp3網址連接</h1>
     <main>
-<h1>歡迎來到我的網頁</h1>
-<p>這個網頁有標題和背景。</p>
+        <ul id="audio-list" class="audio-list">
+            </ul>
+        <template id="audio-item-template">
+            <li class="audio-item">
+                <h4 class="audio-title"></h4>
+                <audio controls></audio>
+            </li>
+        </template>
+    </main>
+    <footer>
+        <p>&copy; 2025 87lin1自用music網站</p>
+        <p>有問題請洽085757asd@gmail.com!</p>
+        <p>If you have any questions, please contact 085757asd@gmail.com!</p>
+        <p>ご質問がございましたら、085757asd@gmail.com までお問い合わせください</p>
+    </footer>
 
-</main>
-<footer>
-    <p>&copy; 2024 我的網站. 版權所有。</p>
-    <p>聯絡我們：info@example.com</p>
-  </footer>
+    <script src="javascript.js">
+     
+    </script>
 </body>
-
 </html>

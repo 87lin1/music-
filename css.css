@@ -1,0 +1,65 @@
+/* css.css */
+body, h1 {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("picture/GmUOv2jbMAAFy0X.jpg");
+    background-size: contain;
+    background-position: center;
+    background-color: rgba(239, 229, 229, 0.5);
+    background-blend-mode: overlay;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+h1 {
+    text-align: center;
+    line-height: 3;
+    font-size: 2em;
+    color: rgb(0, 0, 0);
+    background-color: rgba(119, 59, 59, 0.5);
+    background-blend-mode: overlay;
+}
+
+.audio-list {
+    list-style: none; /* 移除列表符號 */
+    padding: 0;
+}
+
+.audio-item {
+    margin-bottom: 20px;
+    text-align: center; /* 音訊項目置中 */
+}
+
+.audio-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px; /* 標題與播放器間距 */
+}
+
+audio {
+    width: 80%; /* 音訊播放器寬度 */
+    max-width: 500px; /* 最大寬度 */
+    margin: 0 auto; /* 水平置中 */
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* 響應式設計 */
+@media (max-width: 600px) {
+    audio {
+        width: 100%; /* 小螢幕時播放器寬度 */
+    }
+}
