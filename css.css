@@ -1,5 +1,5 @@
 /* css.css */
-body, h1 {
+body, h1, ul, li, audio, h2, div, a, input, aside, button {
     margin: 0;
     padding: 0;
 }
@@ -15,8 +15,20 @@ body {
     min-height: 100vh;
 }
 
-main {
+main.content-area {
+    display: flex;
     flex: 1;
+}
+
+.left-sidebar, .right-sidebar {
+    width: 250px; /* 側邊欄寬度 */
+    background-color: rgba(200, 200, 200, 0.5);
+    padding: 20px;
+}
+
+.audio-player-area {
+    flex: 1;
+    padding: 20px;
 }
 
 h1 {
@@ -62,4 +74,22 @@ footer {
     audio {
         width: 100%; /* 小螢幕時播放器寬度 */
     }
+
+    main.content-area {
+        flex-direction: column; /* 小螢幕時垂直排列 */
+    }
+
+    .left-sidebar, .right-sidebar {
+        width: 100%; /* 小螢幕時側邊欄寬度 */
+    }
+}
+
+.playlist-header {
+    display: flex;
+    justify-content: space-between; /* 將按鈕放在播放清單右側 */
+    align-items: center;
+}
+
+.playlist-controls button {
+    margin-left: 5px; /* 按鈕間距 */
 }

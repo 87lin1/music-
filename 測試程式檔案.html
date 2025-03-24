@@ -8,15 +8,36 @@
 </head>
 <body>
     <h1>87lin自用music轉.mp3網址連接</h1>
-    <main>
-        <ul id="audio-list" class="audio-list">
+    <main class="content-area">
+        <aside class="left-sidebar">
+            <div class="playlist-header">
+                <h2>播放清單</h2>
+                <div class="playlist-controls">
+                    <button id="add-all">一鍵添加</button>
+                    <button id="repeat-one">單曲循環</button>
+                    <button id="shuffle">全部隨機</button>
+                    <button id="repeat-all">重複循環</button>
+                </div>
+            </div>
+            <ul id="playlist" class="playlist">
             </ul>
-        <template id="audio-item-template">
-            <li class="audio-item">
-                <h4 class="audio-title"></h4>
-                <audio controls></audio>
-            </li>
-        </template>
+        </aside>
+        <section class="audio-player-area">
+            <ul id="audio-list" class="audio-list">
+            </ul>
+            <template id="audio-item-template">
+                <li class="audio-item">
+                    <h4 class="audio-title"></h4>
+                    <audio controls></audio>
+                    <button class="add-to-playlist">加入播放清單</button>
+                </li>
+            </template>
+        </section>
+        <aside class="right-sidebar">
+            <h2>目前播放歌曲</h2>
+            <div id="current-song-info">
+            </div>
+        </aside>
     </main>
     <footer>
         <p>&copy; 2025 87lin1自用music網站</p>
@@ -24,9 +45,6 @@
         <p>If you have any questions, please contact 085757asd@gmail.com!</p>
         <p>ご質問がございましたら、085757asd@gmail.com までお問い合わせください</p>
     </footer>
-
-    <script src="javascript.js">
-     
-    </script>
+    <script src="javascript.js"></script>
 </body>
 </html>

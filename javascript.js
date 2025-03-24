@@ -26,16 +26,166 @@ const audioData = [
 
 const audioList = document.getElementById("audio-list");
 const audioItemTemplate = document.getElementById("audio-item-template");
+const playlist = document.getElementById("playlist");
+const currentSongInfo = document.getElementById("current-song-info");
+const repeatOneButton = document.getElementById("repeat-one");
+const shuffleButton = document.getElementById("shuffle");
+const repeatAllButton = document.getElementById("repeat-all");
+const addAllButton = document.getElementById("add-all"); // 新增一鍵添加按鈕
 
+let currentPlaylist = [];
+let currentAudio = null;
+let currentSongIndex = 0;
+let repeatOne = false;
+let shuffle = false;
+let repeatAll = false;
+
+// 初始化播放清單 (一開始為空)
+playlist.innerHTML = "";
+
+// 建立音訊項目
 audioData.forEach(audio => {
     const audioItem = audioItemTemplate.content.cloneNode(true);
-    audioItem.querySelector(".audio-title").textContent = audio.title;
-    audioItem.querySelector("audio").src = audio.src;
+    const audioTitle = audioItem.querySelector(".audio-title");
+    const audioElement = audioItem.querySelector("audio");
+    const addToPlaylistButton = audioItem.querySelector(".add-to-playlist");
+
+    audioTitle.textContent = audio.title;
+    audioElement.src = audio.src;
+
+    audioElement.addEventListener('loadedmetadata', () => {
+        audioElement.volume = 0.05;
+    });
+
+    audioElement.onerror = function() {
+        console.error("音訊檔案載入失敗：", audio.src);
+        audioTitle.textContent = "音訊檔案載入失敗";
+        audioElement.style.display = "none";
+    };
+
     audioList.appendChild(audioItem);
-});
-document.addEventListener('DOMContentLoaded', function() {
-    const audioPlayers = document.querySelectorAll('audio');
-    audioPlayers.forEach(audio => {
-        audio.volume = 0.02;
+
+    // 加入播放清單
+    addToPlaylistButton.addEventListener("click", () => {
+        // 檢查播放清單是否已存在該歌曲
+        if (!currentPlaylist.some(song => song.src === audio.src)) {
+            currentPlaylist.push(audio);
+            updatePlaylistDisplay();
+        }
+    });
+
+    // 曲目播放事件
+    audioElement.addEventListener("play", () => {
+        // 停止之前的播放
+        if (currentAudio && currentAudio !== audioElement) {
+            currentAudio.pause();
+        }
+        currentAudio = audioElement;
+        updateCurrentSongInfo(audio);
+    });
+
+    // 曲目結束事件
+    audioElement.addEventListener("ended", () => {
+        playNextSong();
     });
 });
+
+// 更新目前播放歌曲資訊
+function updateCurrentSongInfo(audio) {
+    const duration = currentAudio.duration;
+    const minutes = Math.floor(duration / 60);
+    const seconds = Math.floor(duration % 60);
+    currentSongInfo.innerHTML = `
+        <p>曲名: ${audio.title}</p>
+        <p>來源: ${audio.src}</p>
+        <p>時長: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}</p>
+    `;
+}
+
+// 播放歌曲
+function playSong(song) {
+    const audioItems = document.querySelectorAll(".audio-item");
+    audioItems.forEach(item => {
+        const title = item.querySelector(".audio-title").textContent;
+        if (title === song.title) {
+            item.querySelector("audio").play();
+        }
+    });
+}
+
+// 播放清單的顯示を更新
+function updatePlaylistDisplay() {
+    playlist.innerHTML = "";
+    currentPlaylist.forEach(song => {
+        const playlistItem = document.createElement("li");
+        playlistItem.textContent = song.title;
+        playlistItem.addEventListener("click", () => {
+            playSong(song);
+        });
+        playlist.appendChild(playlistItem);
+    });
+}
+
+// 時間をフォーマット
+function formatTime(time) {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+}
+
+// 1曲リピート
+repeatOneButton.addEventListener("click", () => {
+    resetButtons();
+    repeatOne = !repeatOne;
+    repeatOneButton.classList.toggle("active", repeatOne);
+});
+
+// シャッフル
+shuffleButton.addEventListener("click", () => {
+    resetButtons();
+    shuffle = !shuffle;
+    shuffleButton.classList.toggle("active", shuffle);
+});
+
+// 全曲リピート
+repeatAllButton.addEventListener("click", () => {
+    resetButtons();
+    repeatAll = !repeatAll;
+    repeatAllButton.classList.toggle("active", repeatAll);
+});
+
+// 一鍵添加
+addAllButton.addEventListener("click", () => {
+    audioData.forEach(audio => {
+        if (!currentPlaylist.some(song => song.src === audio.src)) {
+            currentPlaylist.push(audio);
+        }
+    });
+    updatePlaylistDisplay();
+});
+
+function resetButtons() {
+    repeatOne = false;
+    shuffle = false;
+    repeatAll = false;
+    repeatOneButton.classList.remove("active");
+    shuffleButton.classList.remove("active");
+    repeatAllButton.classList.remove("active");
+}
+
+function playNextSong() {
+    if (currentPlaylist.length > 0) {
+        if (repeatOne) {
+            playSong(currentPlaylist[currentSongIndex]);
+        } else if (shuffle) {
+            currentSongIndex = Math.floor(Math.random() * currentPlaylist.length);
+            playSong(currentPlaylist[currentSongIndex]);
+        } else if (repeatAll) {
+            currentSongIndex = (currentSongIndex + 1) % currentPlaylist.length;
+            playSong(currentPlaylist[currentSongIndex]);
+        } else {
+            currentSongIndex = (currentSongIndex + 1) % currentPlaylist.length;
+            playSong(currentPlaylist[currentSongIndex]);
+        }
+    }
+}
