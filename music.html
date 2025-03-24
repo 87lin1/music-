@@ -6,31 +6,44 @@
     <title>87lin自用music轉.mp3連接</title>
    <style>
   body, h1 {
-  margin: 0;
-  padding: 0;
-}
-body {
-  background-image: url("picture/GmUOv2jbMAAFy0X.jpg");
-  background-size: cover;
-  background-color: rgba(255, 255, 255, 0.5); /* body背景淡化 */
-  background-blend-mode: overlay; /* 背景混合模式 */
-}
-h1 {
-  text-align: center;
-  background-image: url("picture/GmUOv2jbMAAFy0X.jpg");
-  background-size: cover;
-  background-position: top center;
-  line-height: 3;
-  font-size: 2em;
-  color: white;
-  background-color: rgba(255, 255, 255, 0.5); /* h1背景淡化 */
-  background-blend-mode: overlay; /* 背景混合模式 */
-}
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-image: url("picture/GmUOv2jbMAAFy0X.jpg");
+            background-size: contain; /* または auto */
+            background-position: center;
+            background-color: rgba(239, 229, 229, 0.5);
+            background-blend-mode: overlay;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        main {
+            flex: 1;
+        }
+        h1 {
+            text-align: center;
+            background-position: center; /* bodyと同じ位置に設定 */
+            line-height: 3;
+            font-size: 2em;
+            color: rgb(0, 0, 0);
+            background-color: rgba(119, 59, 59, 0.5);
+            background-blend-mode: overlay;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
    </style>
 </head>
 <body>
+    
     <h1>87lin自用music轉.mp3網址連接</h1>
-  
+  <main>
     <br>
     <a>originalあくあ色ぱれっとホロライブ湊あくあ/271秒</a>
     <br>
@@ -131,7 +144,12 @@ h1 {
     <a></a>
     <br>
     <audio src="music/"controls></audio>
-    
-    
+</main>
+    <footer>
+        <p>&copy; 2025 87lin1自用music網站</p>
+        <p>有問題請洽085757asd@gmail.com!</p>
+        <p>If you have any questions, please contact 085757asd@gmail.com!</p>
+        <p>ご質問がございましたら、085757asd@gmail.com までお問い合わせください。</p>
+      </footer>
 </body>
 </html>
