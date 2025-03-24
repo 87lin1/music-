@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>標題與背景銜接範例</title>
+<style>
+body, h1 {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url("picture/GmUOv2jbMAAFy0X.jpg");
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.5); /* body背景淡化 */
+  background-blend-mode: overlay; /* 背景混合模式 */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+main {
+  flex: 1;
+}
+h1 {
+  text-align: center;
+  background-image: url("picture/GmUOv2jbMAAFy0X.jpg");
+  background-size: cover;
+  background-position: top center;
+  line-height: 3;
+  font-size: 2em;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.5); /* h1背景淡化 */
+  background-blend-mode: overlay; /* 背景混合模式 */
+}
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+    <main>
+<h1>歡迎來到我的網頁</h1>
+<p>這個網頁有標題和背景。</p>
+
+</main>
+<footer>
+    <p>&copy; 2024 我的網站. 版權所有。</p>
+    <p>聯絡我們：info@example.com</p>
+  </footer>
+</body>
+
+</html>
