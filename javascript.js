@@ -22,6 +22,7 @@ const audioData = [
     { title: "tuki.『ひゅるりらぱっぱ』Official Music Video/201秒", src: "music/tuki.『ひゅるりらぱっぱ』Official Music Video.mp3" },
     { title: "Henceforth / 結城さくな(Cover)/236秒", src: "music/Henceforth ⧸ 結城さくな(Cover).mp3" },
     { title: "恋愛サーキュレーション ⧸ 結城さくな(Cover)/253秒", src: "music/恋愛サーキュレーション ⧸ 結城さくな(Cover).mp3" },
+    { title: "六兆年と一夜物語/220秒", src: "music/六兆年と一夜物語.mp3" },
 ];
 
 const audioList = document.getElementById("audio-list");
