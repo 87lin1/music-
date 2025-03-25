@@ -11,7 +11,7 @@ const audioData = [
     { title: "ヨルシカ - 花に亡霊（OFFICIAL VIDEO）/243秒", src: "music/ヨルシカ - 花に亡霊（OFFICIAL VIDEO）.mp3" },
     { title: "治愈系女声(日语版) - 错位时空/208秒", src: "music/治愈系女声(日语版) - 错位时空 ｜ Cuo Wei Shi Kong 一开口就甜到融化！【动态歌.mp3" },
     { title: "music/ヨルシカ - だから僕は音楽を辞めた (Music Video)/247秒", src: "music/ヨルシカ - だから僕は音楽を辞めた (Music Video).mp3" },
-    { title: "YOASOBI「たぶん」Official Music Video/264秒", src: "music/YOASOBI「たぶん」Official Music Video.mp3" },
+    { title: "YOASOBI「たぶん」Official Music Video/264秒", src: "music/YOASOBI「たぶん」Official Music  Video.mp3" },
     { title: "YOASOBI「アンコール」Official Music Video/282秒", src: "music/YOASOBI「アンコール」Official Music Video.mp3" },
     { title: "YOASOBI「あの夢をなぞって」 Official Music Video/240秒", src: "music/YOASOBI「あの夢をなぞって」 Official Music Video.mp3" },
     { title: "5 Seconds of Summer - Teeth (Official Video)/219秒", src: "music/5 Seconds of Summer - Teeth (Official Video).mp3" },
